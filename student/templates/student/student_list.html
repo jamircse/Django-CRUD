@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <style>
+        a{
+            text-decoration: none;
+            margin: 1px;
+        }
+        table{
+          text-align: center;
+        }
+        table tr td{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="align:center;">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th><a href="{% url 'student_insert' %}">add</a></th>
+        </tr>
+        {% for st in student %}
+        <tr>
+            
+            <td>{{st.first_name}}</td>
+            <td>{{st.last_name}}</td>
+            <td>{{st.email}}</td>
+            <td><a href="{% url 'student_update' st.id %}">Edit</a> | <a href="{% url 'student_delete' st.id %}">Delete</a></td>
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+   
+</body>
+
+</html>
